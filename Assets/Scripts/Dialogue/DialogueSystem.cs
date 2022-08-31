@@ -8,7 +8,7 @@ using UnityEngine.InputSystem;
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField]private TextMeshProUGUI textComponent;
-    [SerializeField] private string[] lines;
+    private string[] lines;
     
     [Range(.1f, 100f)]
     [SerializeField] private float textSpeed;
@@ -16,11 +16,16 @@ public class DialogueSystem : MonoBehaviour
     private int index;
 
     public float TextSpeed => 1f / textSpeed;
-    
+
+    private void Awake()
+    {
+        gameObject.SetActive(false);
+        textComponent.text = String.Empty;
+    }
+
     private void Start()
     {
-        textComponent.text = String.Empty;
-        StartDialogue();
+        //StartDialogue();
     }
 
 
@@ -43,6 +48,15 @@ public class DialogueSystem : MonoBehaviour
 
     private void StartDialogue()
     {
+        StartCoroutine(TypeLine());
+        index = 0;
+    }
+
+    public void StartDialogue(DialogueSequenceSO dialogueSequence)
+    {
+        gameObject.SetActive(true);
+        textComponent.text = String.Empty;
+        lines = dialogueSequence.DialogueLines;
         StartCoroutine(TypeLine());
         index = 0;
     }
