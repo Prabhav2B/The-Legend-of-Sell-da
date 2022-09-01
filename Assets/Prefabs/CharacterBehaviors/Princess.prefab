@@ -1,0 +1,87 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1554866745689352525
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6065430431680382207}
+  - component: {fileID: 8702738840421475145}
+  m_Layer: 0
+  m_Name: Princess
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6065430431680382207
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554866745689352525}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &8702738840421475145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1554866745689352525}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3a33294daf97854382fd0c7888597b3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  merchantCodedDialogues:
+  - dialogueSequence: {fileID: 11400000, guid: a2b740b33121130498c2d1ec46c638da, type: 2}
+    code: PN
+  - dialogueSequence: {fileID: 11400000, guid: 53bc40f44647f174faeef16229d51d95, type: 2}
+    code: PNL
+  - dialogueSequence: {fileID: 11400000, guid: 0e02105c0107add4ba095b53ddea5e00, type: 2}
+    code: PSE
+  - dialogueSequence: {fileID: 11400000, guid: bd6ebcdf68df02f4b86521de0b887b43, type: 2}
+    code: PS
+  - dialogueSequence: {fileID: 11400000, guid: 734f1c89135d69d4f97d284df205e082, type: 2}
+    code: PYL
+  - dialogueSequence: {fileID: 11400000, guid: f8cfa77768fc28a408779f31e04f5d01, type: 2}
+    code: PD1GR
+  - dialogueSequence: {fileID: 11400000, guid: b6265df9d2936a34eb97b80920368f20, type: 2}
+    code: PD1GB
+  - dialogueSequence: {fileID: 11400000, guid: e984b57af68da6c418610f096424b2fd, type: 2}
+    code: PD2BGR
+  - dialogueSequence: {fileID: 11400000, guid: 89a115be285d15d4f938c184018aa9b0, type: 2}
+    code: PD2GGR
+  - dialogueSequence: {fileID: 11400000, guid: eb217e70ab8633b439dd3d5e421d71fd, type: 2}
+    code: PD2NGR
+  - dialogueSequence: {fileID: 11400000, guid: a4c10c758eea71b489df1b8143581384, type: 2}
+    code: PD2GB
+  - dialogueSequence: {fileID: 11400000, guid: c45e19ca541ca7640b0bbe8457a10813, type: 2}
+    code: PD3GR++
+  - dialogueSequence: {fileID: 11400000, guid: 1aed90eae2fdf5d499f50b590d01e77f, type: 2}
+    code: PD3GR+-
+  - dialogueSequence: {fileID: 11400000, guid: 4e71565991237a241baebfc42cf1e630, type: 2}
+    code: PD3GR+-+-
+  - dialogueSequence: {fileID: 11400000, guid: 99764839d29bf3243952ad2a8377d058, type: 2}
+    code: PD3GR-+
+  - dialogueSequence: {fileID: 11400000, guid: 6a5788bf20082564db11ade4f441570f, type: 2}
+    code: PD3GR--
+  - dialogueSequence: {fileID: 11400000, guid: c5d0e24e2938f9444a05013d61a9fa89, type: 2}
+    code: PD3NL
+  - dialogueSequence: {fileID: 11400000, guid: 1114f4abe52b3a24bac679b0238f5752, type: 2}
+    code: PD3SE
+  - dialogueSequence: {fileID: 11400000, guid: faa8bce6434406e44b53144ab983ceaa, type: 2}
+    code: PD3YL
+  - dialogueSequence: {fileID: 11400000, guid: 2bd6c54f1f64e6a4d8a5cfd9f3985727, type: 2}
+    code: PD3GB
