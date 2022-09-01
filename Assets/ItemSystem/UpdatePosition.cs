@@ -12,6 +12,8 @@ public class UpdatePosition : MonoBehaviour
     public Vector3 normalPosition;
     public Vector3 expensivePosition;
 
+    public int soundID = 2;
+
     // Where the item is currently moving to
     public int DisplayPosition;
 
@@ -80,7 +82,7 @@ public class UpdatePosition : MonoBehaviour
         if (mouseButtonGoingOn && Input.GetMouseButtonUp(0))
         {
             SortDisplayPosition();
-            print(DisplayPosition);
+            // print(DisplayPosition);
             if (DisplayPosition == 0)
             {
                 aboutToClear = true;
@@ -117,6 +119,7 @@ public class UpdatePosition : MonoBehaviour
             {
                 SetDisplayStatus(DisplayPosition);
                 PlaceItemOnDisplay(DisplayPosition);
+                ShopAudioEngine.Instance.PlaySoundFX(soundID);
             }
 
             aboutToMove = false;
@@ -267,7 +270,7 @@ public class UpdatePosition : MonoBehaviour
 
     void SetDisplayStatus(int DisplayPosition)
     {
-        print(DisplayPosition);
+        // print(DisplayPosition);
 
         switch (DisplayPosition)
         {
