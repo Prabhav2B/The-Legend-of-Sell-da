@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad17eed68fe36604c9627de99552b207, type: 3}
+  m_Name: MerchantLetter
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - Hi kid!
+  - "I\u2019m so grateful you agreed to take care of the shop while I go out on my
+    annual Beetle-hunting trip. Wish me luck!"
+  - "Remember, that as a shopkeeper you have many responsibilities, the most obvious
+    of which is to make money, but it is equally important to remember to sell your
+    customers the items that will help them the most\u2026 or even if not them, the
+    world itself."
+  - Good luck!
+  expression: 0

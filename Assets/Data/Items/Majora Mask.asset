@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: Majora Mask
   m_EditorClassIdentifier: 
   itemName: Majora's Mask
-  description: 
+  description: "Something is wrong with this. It reeks of something\u2026 evil, and
+    gives you the sense that it will bring misfortune to whoever owns it."
   itemType: 10

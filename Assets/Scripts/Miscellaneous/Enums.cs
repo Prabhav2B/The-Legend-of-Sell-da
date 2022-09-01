@@ -16,7 +16,8 @@ public static class Enums
         phantom_helmet,
         sheik_mask,
         ocarina,
-        majora_mask
+        majora_mask,
+        bomb
     }
 
     public enum Characters

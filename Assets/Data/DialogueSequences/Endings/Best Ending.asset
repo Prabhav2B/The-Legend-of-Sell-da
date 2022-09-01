@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad17eed68fe36604c9627de99552b207, type: 3}
+  m_Name: Best Ending
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - 'Hi buddy! '
+  - 'Have you heard the news? The princess and the hero have won and the false king
+    has been defeated. There are parties and celebrations held all across Hyrule
+    as people cheer for the saviours of our land. And while most might not recognize
+    your efforts, know that I and your customers know how much you have contributed
+    to this victory. '
+  - "I\u2019m so proud of you! "
+  expression: 0

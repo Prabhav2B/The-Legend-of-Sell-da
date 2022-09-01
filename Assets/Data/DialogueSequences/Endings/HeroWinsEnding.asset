@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad17eed68fe36604c9627de99552b207, type: 3}
+  m_Name: HeroWinsEnding
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - Hiya buddy!
+  - "Good news and bad news. Good news first: the hero has defeated the false king
+    and Hyrule has been saved. We might have some rebuilding to do and there will
+    be difficult times ahead, but I believe it is thanks to you and your efforts
+    that we managed to win. But\u2026 as for the bad news: I\u2019m afraid the princess
+    has disappeared after the battle. From what I heard, she was gravely wounded\u2026
+    But do not beat yourself up over it. Sometimes selling the right items is all
+    about the timing and chance."
+  - I will be home soon.
+  expression: 0
