@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CharacterBehavior : MonoBehaviour
 {
-
     protected int currentMoney;
 
     void Start()

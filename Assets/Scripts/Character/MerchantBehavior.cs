@@ -16,6 +16,10 @@ public class MerchantBehavior : CharacterBehavior
     public override void StandardDialogue()
     {
         base.StandardDialogue();
+        switch (hideFlags)
+        {
+            
+        }
         
     }
 

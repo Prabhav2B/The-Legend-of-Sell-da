@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class GlobalVariableManager : MonoBehaviour
 {
-
     private Enums.Days _currentDay;
 
     private int _adventurerPoints;
@@ -15,12 +14,13 @@ public class GlobalVariableManager : MonoBehaviour
     public int AdventurerPoints => _adventurerPoints;
     public int PrincessPoints => _princessPoints;
     public int EvilDoodPoints => _evilDoodPoints;
-    
+
     void Start()
     {
         _adventurerPoints = 0;
         _princessPoints = 0;
         _evilDoodPoints = 0;
+        _currentDay = Enums.Days.Day1;
     }
 
     public void UpdatePoints(Enums.Characters character, int points)
@@ -38,11 +38,29 @@ public class GlobalVariableManager : MonoBehaviour
                 break;
             case Enums.Characters.merchant:
                 throw new Exception("Merchant Should not have Character points");
-                //break;
+            //break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(character), character, null);
         }
     }
 
-
+    public void IncrementDay()
+    {
+        switch (_currentDay)
+        {
+            case Enums.Days.Day1:
+                _currentDay = Enums.Days.Day2;
+                break;
+            case Enums.Days.Day2:
+                _currentDay = Enums.Days.Day3;
+                break;
+            case Enums.Days.Day3:
+                _currentDay = Enums.Days.EndDay;
+                break;
+            case Enums.Days.EndDay:
+                throw new Exception("Already on Last Day!");
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
 }
