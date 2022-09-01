@@ -16,6 +16,7 @@ public class MerchantBehavior : CharacterBehavior
     public override void StandardDialogue()
     {
         base.StandardDialogue();
+        
     }
 
     void Update()

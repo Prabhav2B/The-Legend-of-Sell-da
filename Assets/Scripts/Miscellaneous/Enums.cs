@@ -38,8 +38,21 @@ public static class Enums
     {
         Day1,
         Day2,
-        Day3
+        Day3,
+        EndDay
     }
-    
-    
+
+    public enum Expressions
+    {
+        curious,
+        frown,
+        happy,
+        super_frown,
+        super_happy,
+        furious,
+        smile
+        
+    }
+
+
 }
