@@ -354,7 +354,7 @@ MonoBehaviour:
     ModeOverride: 0
     LensShift: {x: 0, y: 0}
     GateFit: 2
-    m_SensorSize: {x: 1.74581, y: 1}
+    m_SensorSize: {x: 1.0295699, y: 1}
   m_Transitions:
     m_BlendHint: 0
     m_InheritPosition: 0
@@ -2984,6 +2984,10 @@ PrefabInstance:
       propertyPath: DisplayObject
       value: 
       objectReference: {fileID: 943005974}
+    - target: {fileID: 5871090699602383674, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5871090699614954685, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}
       propertyPath: m_Name
       value: ItemSystem
@@ -2994,7 +2998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5871090699614954686, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.054
       objectReference: {fileID: 0}
     - target: {fileID: 5871090699614954686, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}
       propertyPath: m_LocalPosition.y
@@ -3032,6 +3036,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5871090700048359179, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}
+      propertyPath: m_Size.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5871090700048359179, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}
+      propertyPath: m_Size.y
+      value: 0.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5871090700048359179, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 5871090700048359286, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}
       propertyPath: DisplayObject
       value: 
@@ -3040,5 +3056,9 @@ PrefabInstance:
       propertyPath: DisplayObject
       value: 
       objectReference: {fileID: 882510048}
+    - target: {fileID: 5871090701415723738, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}
+      propertyPath: m_Size.z
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8b62568c86ef5bc40a32e818f91d52cd, type: 3}

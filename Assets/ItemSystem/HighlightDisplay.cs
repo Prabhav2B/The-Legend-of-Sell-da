@@ -26,11 +26,15 @@ public class HighlightDisplay : MonoBehaviour
         DisplayObject.GetComponent<Renderer>().material = HighlightMaterial;
     }
 
+    void OnTriggerStay(Collider collider)
+    {
+        DisplayObject.GetComponent<Renderer>().material = HighlightMaterial;
+    }
+
     void OnTriggerExit(Collider collider)
     {
         DisplayObject.GetComponent<Renderer>().material = OriginalMaterial;
     }
 
-    //  OriginalMaterial = DisplayObject.GetComponent<Renderer>().material;
 }
 
