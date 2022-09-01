@@ -26,7 +26,7 @@ public class DialogueSystem : MonoBehaviour
     
     private void Awake()
     {
-        gameObject.SetActive(false);
+    //    gameObject.SetActive(false);
         textComponent.text = String.Empty;
         textComponentDescription.text = String.Empty;
         _character = Enums.Characters._;
@@ -90,12 +90,12 @@ public class DialogueSystem : MonoBehaviour
 
     public void SetItemDescription(ItemSO item)
     {
-        textComponent.text = item.description;
+        textComponentDescription.text = item.description;
     }
     
     public void ClearItemDescription()
     {
-        textComponent.text = String.Empty;
+        textComponentDescription.text = String.Empty;
     }
 
     IEnumerator TypeLine()

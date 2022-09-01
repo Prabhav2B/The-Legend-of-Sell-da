@@ -6,9 +6,15 @@ public class ShowItemInfo : MonoBehaviour
 {
     Vector3 originalPosition;
 
+    public ItemSO itemDescription;
+    private DialogueSystem dialogueSystem;
+
+    private bool showingDescription;
     // Start is called before the first frame update
     void Start()
     {
+        dialogueSystem = GameObject.FindObjectOfType<DialogueSystem>();
+
         originalPosition = transform.position;
     }
 
@@ -23,18 +29,30 @@ public class ShowItemInfo : MonoBehaviour
         {
             if (hit.transform.gameObject == gameObject && transform.position == originalPosition) // Input.GetMouseButtonDown(0) != true && Input.GetMouseButton(0) != true)
             {
-                    // Show info
-                    gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                // Show info
+                dialogueSystem.SetItemDescription(itemDescription);
+                showingDescription = true;
+               // gameObject.transform.GetChild(0).gameObject.SetActive(true);
             }
             else
             {
-                    gameObject.transform.GetChild(0).gameObject.SetActive(false);
+                if (showingDescription)
+                {
+                    dialogueSystem.ClearItemDescription();
+                    showingDescription = false;
+                }
+                 //   gameObject.transform.GetChild(0).gameObject.SetActive(false);
             }
                 
         }
         else
         {
-            gameObject.transform.GetChild(0).gameObject.SetActive(false);
+            if (showingDescription)
+            {
+                dialogueSystem.ClearItemDescription();
+                showingDescription = false;
+            }
+            //  gameObject.transform.GetChild(0).gameObject.SetActive(false);
         }
 
     }

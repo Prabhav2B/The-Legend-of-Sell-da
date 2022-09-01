@@ -10,6 +10,13 @@ public class ItemInventory : MonoBehaviour
 
     public static ItemInventory Instance;
 
+    public GameObject[] UnderTheShelfPreFabs;
+    public Vector3[] UnderTheSelfLocations;
+
+    public GameObject[] FullObjectInventory;
+
+    public int SpwanAmount = 8;
+
     private void Awake()
     {
         Instance = this;
@@ -25,5 +32,21 @@ public class ItemInventory : MonoBehaviour
     void Update()
     {
         
+    }
+
+    // Spawn items under the shelf
+    void SpawnShopItems()
+    {
+//        if (UnderTheSelfLocations.Length < SpawnAmount)
+        {
+            print("Setup locations for items!");
+            return;
+        }
+
+//        for (int i = 0; i < SpawnAmount; i++ )
+//        {
+//            UnderTheShelfPreFabs[i] = FullObjectInventory[i];
+//            UnderTheShelfPreFabs[i].transform = UnderTheSelfLocations[i];
+//        }
     }
 }
