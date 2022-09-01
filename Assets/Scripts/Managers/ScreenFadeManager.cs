@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using TMPro;
 
 public class ScreenFadeManager : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class ScreenFadeManager : MonoBehaviour
     
     [SerializeField] private float _screenFadeDuration = 2f;
     private Image _fadeImage;
+    private TMP_Text text;
 
     void Awake()
     {
@@ -18,6 +20,7 @@ public class ScreenFadeManager : MonoBehaviour
             throw new Exception("Game Sequence Reference Missing in Screen Fade Manager!"); 
         
         _fadeImage = GetComponentInChildren<Image>();
+        text = GetComponent<TMP_Text>();
     }
 
     private void Start()

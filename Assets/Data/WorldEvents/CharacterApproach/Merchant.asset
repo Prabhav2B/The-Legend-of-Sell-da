@@ -9,10 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ad17eed68fe36604c9627de99552b207, type: 3}
-  m_Name: TestDialogueA
+  m_Script: {fileID: 11500000, guid: 8f742508d779aba419a146b59f7622a8, type: 3}
+  m_Name: Merchant
   m_EditorClassIdentifier: 
-  DialogueLines:
-  - This is a test sequence
-  - I dunno what else to say
-  - these things need a lorem ipsum generator
+  WorldEvent: 1
+  character: 3

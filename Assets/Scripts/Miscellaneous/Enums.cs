@@ -18,4 +18,21 @@ public static class Enums
         ocarina,
         majora_mask
     }
+
+    public enum Characters
+    {
+        adventurer,
+        princess,
+        evilassdood,
+        merchant
+    }
+
+    public enum WorldEvents
+    {
+        dayStart,
+        characterApproach,
+        dayEnd
+    }
+    
+    
 }
