@@ -1,14 +1,9 @@
 fileFormatVersion: 2
-guid: 7c6dd4a7f6fe14c0d8b130c428299c68
+guid: 2162f8675ac4a4389a3d7518084e9585
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: transparent_mat
-    second: {fileID: 2100000, guid: ad9e6b4113bfa4c988d2a7fcf6f6abbe, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
