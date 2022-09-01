@@ -1,0 +1,81 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &7260854392244894238
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7725296467199895381}
+  - component: {fileID: 1826747004021782023}
+  m_Layer: 0
+  m_Name: FalseKing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7725296467199895381
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260854392244894238}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1826747004021782023
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7260854392244894238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26d7d84b01151274f950c73cfb9d4075, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  merchantCodedDialogues:
+  - dialogueSequence: {fileID: 11400000, guid: 5901724eeb9279145bcd5d31f8e58af1, type: 2}
+    code: FKSE
+  - dialogueSequence: {fileID: 11400000, guid: 91895180b5f4c5a4b818de08bdff8f4e, type: 2}
+    code: FKH
+  - dialogueSequence: {fileID: 11400000, guid: 3368423a17971e349945a80685f10ef7, type: 2}
+    code: FKN
+  - dialogueSequence: {fileID: 11400000, guid: 59d91b1ba6573e244afda3c2a754c226, type: 2}
+    code: FKL
+  - dialogueSequence: {fileID: 11400000, guid: 5b5f179f2e179f14489988bcc010a168, type: 2}
+    code: FKS
+  - dialogueSequence: {fileID: 11400000, guid: 99e73047a418098428c7342aa134e4a0, type: 2}
+    code: FKD1GR
+  - dialogueSequence: {fileID: 11400000, guid: cfc1fc51bf8e3514c9b3a1b8f395411f, type: 2}
+    code: FKD1GB
+  - dialogueSequence: {fileID: 11400000, guid: 2ef40e2e530366c4e857d04b92250f98, type: 2}
+    code: FKD2BGR
+  - dialogueSequence: {fileID: 11400000, guid: 8a37ef8ba71597e46a6d6ecb145e29c6, type: 2}
+    code: FKD2GGR
+  - dialogueSequence: {fileID: 11400000, guid: 90f5db249a37756409485a7740bda6ad, type: 2}
+    code: FKD2NGR
+  - dialogueSequence: {fileID: 11400000, guid: e7bdc2d186a15cd4581687a3b76b3a34, type: 2}
+    code: FKD2GB
+  - dialogueSequence: {fileID: 11400000, guid: 22057e1c62a041b4ebeaff029a51bf25, type: 2}
+    code: FKD3GR++
+  - dialogueSequence: {fileID: 11400000, guid: 8d83819bdc485b84ea43be7be076356f, type: 2}
+    code: FKD3GR+-
+  - dialogueSequence: {fileID: 11400000, guid: 0ca65cc1bd34c6c409e0c3116a4dccbe, type: 2}
+    code: FKD3GR+-+-
+  - dialogueSequence: {fileID: 11400000, guid: bdfb6deda235bf64abfe60fec30c9b68, type: 2}
+    code: FKD3GR-+
+  - dialogueSequence: {fileID: 11400000, guid: b362cd299b5a0b844bc21d4c0e9ee609, type: 2}
+    code: FKD3GR--
+  - dialogueSequence: {fileID: 11400000, guid: 8fa8ced207f6a0746bd1ceae783bd446, type: 2}
+    code: FKD3GB
