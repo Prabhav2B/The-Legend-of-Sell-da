@@ -15,14 +15,26 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private float textSpeed;
 
     private int index;
+    private Enums.Characters _character;
 
     public float TextSpeed => 1f / textSpeed;
 
+    [SerializeField] private MerchantBehavior _merchant;
+    [SerializeField] private AdventurerBehavior _adventurer;
+    [SerializeField] private PrincessBehavior _princess;
+    [SerializeField] private EvilAssDoodBehavior _evilAssDood;
+    
     private void Awake()
     {
         gameObject.SetActive(false);
         textComponent.text = String.Empty;
         textComponentDescription.text = String.Empty;
+        _character = Enums.Characters._;
+        
+        _merchant = FindObjectOfType<MerchantBehavior>();
+        _adventurer = FindObjectOfType<AdventurerBehavior>();
+        _princess = FindObjectOfType<PrincessBehavior>();
+        _evilAssDood = FindObjectOfType<EvilAssDoodBehavior>();
     }
 
     private void Start()
@@ -59,8 +71,21 @@ public class DialogueSystem : MonoBehaviour
         gameObject.SetActive(true);
         textComponent.text = String.Empty;
         lines = dialogueSequence.DialogueLines;
-        StartCoroutine(TypeLine());
         index = 0;
+        StartCoroutine(TypeLine());
+        
+    }
+    
+    public void StartDialogue(DialogueSequenceSO dialogueSequence, Enums.Characters character)
+    {
+        _character = character;
+        
+        gameObject.SetActive(true);
+        textComponent.text = String.Empty;
+        lines = dialogueSequence.DialogueLines;
+        index = 0;
+        StartCoroutine(TypeLine());
+        
     }
 
     public void SetItemDescription(ItemSO item)
@@ -93,6 +118,31 @@ public class DialogueSystem : MonoBehaviour
         else
         {
             gameObject.SetActive(false);
+
+            if (_character != Enums.Characters._)
+            {
+                switch (_character)
+                {
+                    case Enums.Characters.adventurer:
+                        _adventurer.ActionsLeft();
+                        break;
+                    case Enums.Characters.princess:
+                        _princess.ActionsLeft();
+                        break;
+                    case Enums.Characters.evilassdood:
+                        _evilAssDood.ActionsLeft();
+                        break;
+                    case Enums.Characters.merchant:
+                        _merchant.ActionsLeft();
+                        break;
+                    case Enums.Characters._:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
+
+                _character = Enums.Characters._;
+            }
         }
     }
 

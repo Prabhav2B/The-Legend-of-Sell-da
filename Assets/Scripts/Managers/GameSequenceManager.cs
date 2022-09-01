@@ -11,6 +11,9 @@ public class GameSequenceManager : MonoBehaviour
     [SerializeField] private DialogueSystem _dialogueSystem;
 
     [SerializeField] private MerchantBehavior _merchant;
+    [SerializeField] private AdventurerBehavior _adventurer;
+    [SerializeField] private PrincessBehavior _princess;
+    [SerializeField] private EvilAssDoodBehavior _evilAssDood;
 
     private int worldEventIndex;
     private WorldEventSO currentWorldEvent;
@@ -26,11 +29,11 @@ public class GameSequenceManager : MonoBehaviour
         {
             throw new Exception("Reference to Screen Fade Manager missing in Game Sequence Manager");
         }
-
-        if (_merchant == null)
-        {
-            _merchant = FindObjectOfType<MerchantBehavior>();
-        }
+        
+        _merchant = FindObjectOfType<MerchantBehavior>();
+        _adventurer = FindObjectOfType<AdventurerBehavior>();
+        _princess = FindObjectOfType<PrincessBehavior>();
+        _evilAssDood = FindObjectOfType<EvilAssDoodBehavior>();
 
     }
 
@@ -42,7 +45,7 @@ public class GameSequenceManager : MonoBehaviour
         
     }
 
-    public void StartFirstDialogue()
+    public void WaitForNextEvent()
     {
         StartCoroutine(Waiter(7f));
     }
@@ -56,6 +59,8 @@ public class GameSequenceManager : MonoBehaviour
 
         currentWorldEvent = WorldEvents[worldEventIndex];
         worldEventIndex++;
+        
+        Debug.Log(worldEventIndex);
 
         switch (currentWorldEvent.WorldEvent)  
         {
@@ -63,13 +68,17 @@ public class GameSequenceManager : MonoBehaviour
                 _screenFadeManager.ScreenFadeOutWorldEvent((currentWorldEvent as DayStartSO)?.dayStartText);
                 break;
             case Enums.WorldEvents.characterApproach:
+                StartCoroutine(Waiter(7f));
                 switch ((currentWorldEvent as CharacterSO)?.character)
                 {
                     case Enums.Characters.adventurer:
+                        _adventurer.InitiateCharacterSequence();
                         break;
                     case Enums.Characters.princess:
+                        _princess.InitiateCharacterSequence();
                         break;
                     case Enums.Characters.evilassdood:
+                        _evilAssDood.InitiateCharacterSequence();
                         break;
                     case Enums.Characters.merchant:
                         _merchant.InitiateCharacterSequence();
@@ -89,5 +98,6 @@ public class GameSequenceManager : MonoBehaviour
     IEnumerator Waiter(float waitDuration)
     {
         yield return new WaitForSeconds(waitDuration);
+        ExecuteNextWorldEvent();
     }
 }

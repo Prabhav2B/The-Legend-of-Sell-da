@@ -5,6 +5,7 @@ using UnityEngine;
 public class CharacterBehavior : MonoBehaviour
 {
     protected int currentMoney;
+    protected Enums.CharacterEvent currentEvent;
 
     void Start()
     {
@@ -21,12 +22,20 @@ public class CharacterBehavior : MonoBehaviour
         
     }
     
-    public virtual void StandardDialogue()
+    public virtual void ActionsLeft()
     {
         
     }
-    
-    
+
+    protected virtual void GreetingDialogue()
+    {
+        
+    }
+
+    public virtual void TransactionDialogue()
+    {
+        
+    }
     
     
     

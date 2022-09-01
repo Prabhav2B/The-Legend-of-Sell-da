@@ -64,6 +64,8 @@ MonoBehaviour:
   - dialogueSequence: {fileID: 11400000, guid: efba0ad049a686645b83df7f74a513ca, type: 2}
     code: HWE
   - dialogueSequence: {fileID: 11400000, guid: 8649933f79a20a44986ad57df1645fd3, type: 2}
-    code: GWE
+    code: FKWE
   - dialogueSequence: {fileID: 11400000, guid: 390e76d5a03f8064583ab3b73968c62a, type: 2}
     code: MME
+  _globalVariableManager: {fileID: 0}
+  _dialogueSystem: {fileID: 0}

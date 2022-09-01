@@ -11,10 +11,28 @@ public class GlobalVariableManager : MonoBehaviour
     private int _princessPoints;
     private int _evilDoodPoints;
 
+    private bool[] adventurerWinTally;
+    private bool[] princessWinTally;
+    private bool[] evilDoodWinTally;
+    
+    private bool[] adventurerPersonalTally;
+    private bool[] princessPersonalTally;
+    private bool[] evilDoodPersonalTally;
+
     public int AdventurerPoints => _adventurerPoints;
     public int PrincessPoints => _princessPoints;
     public int EvilDoodPoints => _evilDoodPoints;
 
+    public bool[] AdventurerWinTally => adventurerWinTally;
+    public bool[] PrincessWinTally => princessWinTally;
+    public bool[] EvilWinTally => evilDoodWinTally;
+    
+
+    public bool[] AdventurerPersonalTally => adventurerPersonalTally;
+    public bool[] PrincessPersonalTally => princessPersonalTally;
+    public bool[] EvilPersonalTally => evilDoodPersonalTally;
+    
+    
     public Enums.Days CurrentDay => _currentDay;
 
     void Start()
@@ -23,6 +41,14 @@ public class GlobalVariableManager : MonoBehaviour
         _princessPoints = 0;
         _evilDoodPoints = 0;
         _currentDay = Enums.Days.Day1;
+
+        adventurerWinTally = new bool[3];
+        princessWinTally = new bool[3];
+        evilDoodWinTally = new bool[3];
+        
+        adventurerPersonalTally = new bool[3];
+        princessPersonalTally = new bool[3];
+        evilDoodPersonalTally = new bool[3];
     }
 
     public void UpdatePoints(Enums.Characters character, int points)
@@ -43,6 +69,60 @@ public class GlobalVariableManager : MonoBehaviour
             //break;
             default:
                 throw new ArgumentOutOfRangeException(nameof(character), character, null);
+        }
+    }
+
+    public void CalculateDayWin()
+    {
+        switch (_currentDay)
+        {
+            case Enums.Days.Day1:
+                adventurerWinTally[0] = _adventurerPoints + _princessPoints >= _evilDoodPoints;
+                princessWinTally[0] = _adventurerPoints + _princessPoints >= _evilDoodPoints;
+                evilDoodWinTally[0] = _adventurerPoints + _princessPoints < _evilDoodPoints;
+                break;
+            case Enums.Days.Day2:
+                
+                adventurerWinTally[1] = _adventurerPoints + _princessPoints >= _evilDoodPoints;
+                princessWinTally[1] = _adventurerPoints + _princessPoints >= _evilDoodPoints;
+                evilDoodWinTally[1] = _adventurerPoints + _princessPoints < _evilDoodPoints;
+                break;
+            case Enums.Days.Day3:
+                adventurerWinTally[2] = _adventurerPoints >= _evilDoodPoints;
+                princessWinTally[2] = _princessPoints >= _evilDoodPoints;
+                evilDoodWinTally[2] = _adventurerPoints + _princessPoints < _evilDoodPoints;
+                break;
+            case Enums.Days.EndDay:
+                throw new Exception("Already on Last Day!");
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+    }
+
+    public void CalculatePersonalTally()
+    {
+        switch (_currentDay)
+        {
+            case Enums.Days.Day1:
+                adventurerPersonalTally[0] = _adventurerPoints >= _evilDoodPoints;
+                princessPersonalTally[0] =  _princessPoints >= _evilDoodPoints;
+                evilDoodPersonalTally[0] = _adventurerPoints + _princessPoints < _evilDoodPoints;
+                break;
+            case Enums.Days.Day2:
+                
+                adventurerPersonalTally[1] = _adventurerPoints  >= _evilDoodPoints;
+                princessPersonalTally[1] =  _princessPoints >= _evilDoodPoints;
+                evilDoodPersonalTally[1] = _adventurerPoints + _princessPoints < _evilDoodPoints;
+                break;
+            case Enums.Days.Day3:
+                adventurerPersonalTally[2] = _adventurerPoints >= _evilDoodPoints;
+                princessPersonalTally[2] = _princessPoints >= _evilDoodPoints;
+                evilDoodPersonalTally[2] = _adventurerPoints + _princessPoints < _evilDoodPoints;
+                break;
+            case Enums.Days.EndDay:
+                throw new Exception("Already on Last Day!");
+            default:
+                throw new ArgumentOutOfRangeException();
         }
     }
 

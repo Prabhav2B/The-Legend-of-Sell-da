@@ -25,7 +25,8 @@ public static class Enums
         adventurer,
         princess,
         evilassdood,
-        merchant
+        merchant,
+        _
     }
 
     public enum WorldEvents
@@ -53,6 +54,13 @@ public static class Enums
         furious,
         smile
         
+    }
+
+    public enum CharacterEvent
+    {
+        Entry,
+        Greeting,
+        Selecting
     }
 
 

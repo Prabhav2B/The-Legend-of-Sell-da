@@ -32,7 +32,7 @@ public class ScreenFadeManager : MonoBehaviour
     {
         text.text = dayStartText;
         text.DOColor(fadeoutTextColor, _screenFadeDuration).SetEase(Ease.InQuad);
-        _fadeImage.DOFade(0f, _screenFadeDuration).SetEase(Ease.InQuad).OnComplete(_gameSequenceManager.ExecuteNextWorldEvent);
+        _fadeImage.DOFade(0f, _screenFadeDuration).SetEase(Ease.InQuad).OnComplete(_gameSequenceManager.WaitForNextEvent);
     }
     
     public void ScreenFadeInWorldEvent()
