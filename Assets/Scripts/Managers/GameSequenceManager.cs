@@ -10,6 +10,8 @@ public class GameSequenceManager : MonoBehaviour
     [SerializeField] private WorldEventSO[] WorldEvents;
     [SerializeField] private DialogueSystem _dialogueSystem;
 
+    [SerializeField] private MerchantBehavior _merchant;
+
     private int worldEventIndex;
     private WorldEventSO currentWorldEvent;
 
@@ -24,6 +26,12 @@ public class GameSequenceManager : MonoBehaviour
         {
             throw new Exception("Reference to Screen Fade Manager missing in Game Sequence Manager");
         }
+
+        if (_merchant == null)
+        {
+            _merchant = FindObjectOfType<MerchantBehavior>();
+        }
+
     }
 
     private void Start()
@@ -55,6 +63,22 @@ public class GameSequenceManager : MonoBehaviour
                 _screenFadeManager.ScreenFadeOutWorldEvent((currentWorldEvent as DayStartSO)?.dayStartText);
                 break;
             case Enums.WorldEvents.characterApproach:
+                switch ((currentWorldEvent as CharacterSO)?.character)
+                {
+                    case Enums.Characters.adventurer:
+                        break;
+                    case Enums.Characters.princess:
+                        break;
+                    case Enums.Characters.evilassdood:
+                        break;
+                    case Enums.Characters.merchant:
+                        _merchant.InitiateCharacterSequence();
+                        break;
+                    case null:
+                        break;
+                    default:
+                        throw new ArgumentOutOfRangeException();
+                }
                 break;
             default:
                 throw new ArgumentOutOfRangeException();

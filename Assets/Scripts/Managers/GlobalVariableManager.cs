@@ -15,6 +15,8 @@ public class GlobalVariableManager : MonoBehaviour
     public int PrincessPoints => _princessPoints;
     public int EvilDoodPoints => _evilDoodPoints;
 
+    public Enums.Days CurrentDay => _currentDay;
+
     void Start()
     {
         _adventurerPoints = 0;
