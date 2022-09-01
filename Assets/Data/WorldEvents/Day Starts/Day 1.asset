@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: Day 1
   m_EditorClassIdentifier: 
   WorldEvent: 0
-  DayStartText: Day 1
+  dayStartText: Look Veera this Works!

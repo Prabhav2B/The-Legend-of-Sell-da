@@ -34,5 +34,12 @@ public static class Enums
         dayEnd
     }
     
+    public enum Days
+    {
+        Day1,
+        Day2,
+        Day3
+    }
+    
     
 }

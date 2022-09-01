@@ -12,7 +12,10 @@ public class ScreenFadeManager : MonoBehaviour
     
     [SerializeField] private float _screenFadeDuration = 2f;
     private Image _fadeImage;
-    private TMP_Text text;
+    private TextMeshProUGUI text;
+
+    private Color originalTextColor;
+    private Color fadeoutTextColor;
 
     void Awake()
     {
@@ -20,20 +23,19 @@ public class ScreenFadeManager : MonoBehaviour
             throw new Exception("Game Sequence Reference Missing in Screen Fade Manager!"); 
         
         _fadeImage = GetComponentInChildren<Image>();
-        text = GetComponent<TMP_Text>();
+        text = GetComponentInChildren<TextMeshProUGUI>();
+        originalTextColor = text.color;
+        fadeoutTextColor = new Color(originalTextColor.a, originalTextColor.g, originalTextColor.b, 0);
     }
 
-    private void Start()
+    public void ScreenFadeOutWorldEvent(string dayStartText)
     {
-        _fadeImage.DOFade(0f, _screenFadeDuration).OnComplete(_gameSequenceManager.StartFirstDialogue);
-    }
-
-    public void ScreenFadeIn()
-    {
-        _fadeImage.DOFade(0f, _screenFadeDuration);
+        text.text = dayStartText;
+        text.DOColor(fadeoutTextColor, _screenFadeDuration).SetEase(Ease.InQuad);
+        _fadeImage.DOFade(0f, _screenFadeDuration).SetEase(Ease.InQuad).OnComplete(_gameSequenceManager.ExecuteNextWorldEvent);
     }
     
-    public void ScreenFadeOut()
+    public void ScreenFadeInWorldEvent()
     {
         _fadeImage.DOFade(1f, _screenFadeDuration);
     }
