@@ -13,7 +13,7 @@ public class ShowItemInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dialogueSystem = FindObjectOfType<DialogueSystem>();
+        dialogueSystem = FindObjectOfType<DialogueSystem>(true);
 
         originalPosition = transform.position;
     }
@@ -30,6 +30,7 @@ public class ShowItemInfo : MonoBehaviour
             if (hit.transform.gameObject == gameObject && transform.position == originalPosition) // Input.GetMouseButtonDown(0) != true && Input.GetMouseButton(0) != true)
             {
                 // Show info
+
                 dialogueSystem.SetItemDescription(itemDescription);
                 showingDescription = true;
                // gameObject.transform.GetChild(0).gameObject.SetActive(true);

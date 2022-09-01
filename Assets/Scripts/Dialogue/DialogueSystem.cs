@@ -23,6 +23,8 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private PrincessBehavior _princess;
     [SerializeField] private EvilAssDoodBehavior _evilAssDood;
 
+    private bool inputActive;
+    
     private void Awake()
     {
         gameObject.SetActive(false);
@@ -34,12 +36,15 @@ public class DialogueSystem : MonoBehaviour
         _adventurer = FindObjectOfType<AdventurerBehavior>();
         _princess = FindObjectOfType<PrincessBehavior>();
         _evilAssDood = FindObjectOfType<EvilAssDoodBehavior>();
+
+        inputActive = true;
     }
 
     public void Activate()
     {
         textComponent.text = String.Empty;
         textComponentDescription.text = String.Empty;
+        inputActive = false;
         gameObject.SetActive(true);
     }
 
@@ -51,7 +56,7 @@ public class DialogueSystem : MonoBehaviour
 
     public void OnDialogueAction(InputAction.CallbackContext context)
     {
-        if (!context.performed)
+        if (!context.performed || !inputActive)
             return;
 
         if (textComponent.text == lines[index])
@@ -77,7 +82,9 @@ public class DialogueSystem : MonoBehaviour
         textComponent.text = String.Empty;
         lines = dialogueSequence.DialogueLines;
         index = 0;
+        inputActive = true;
         StartCoroutine(TypeLine());
+        
     }
 
     public void StartDialogue(DialogueSequenceSO dialogueSequence, Enums.Characters character)
@@ -88,6 +95,7 @@ public class DialogueSystem : MonoBehaviour
         textComponent.text = String.Empty;
         lines = dialogueSequence.DialogueLines;
         index = 0;
+        inputActive = true;
         StartCoroutine(TypeLine());
     }
 
