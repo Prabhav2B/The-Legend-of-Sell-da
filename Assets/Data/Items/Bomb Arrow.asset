@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Bomb Arrow
   m_EditorClassIdentifier: 
   itemName: Bomb Arrows
-  description: A pack of arrows with a rather explosive effect. Admittedly anyone
-    could find their inner pyromaniac using these.
+  description: 'A pack of arrows with a rather explosive effect. Admittedly, anyone
+    could find their inner pyromaniac using these. A big bonus for battle. '
   itemType: 0

@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ad17eed68fe36604c9627de99552b207, type: 3}
+  m_Name: MerchantLetterBad
+  m_EditorClassIdentifier: 
+  DialogueLines:
+  - "Hey bud\u2026"
+  - "How are you doing? From what I\u2019ve heard, Hyrule seems to be facing some
+    dark times\u2026 These are the times when us shopkeepers are more important than
+    ever. It is our job to sell, and sell with our morals and ethics intact. "
+  - I believe in you!
+  expression: 0
