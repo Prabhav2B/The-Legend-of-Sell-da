@@ -8,6 +8,7 @@ using UnityEngine.InputSystem;
 public class DialogueSystem : MonoBehaviour
 {
     [SerializeField]private TextMeshProUGUI textComponent;
+    [SerializeField]private TextMeshProUGUI textComponentDescription;
     private string[] lines;
     
     [Range(.1f, 100f)]
@@ -21,6 +22,7 @@ public class DialogueSystem : MonoBehaviour
     {
         gameObject.SetActive(false);
         textComponent.text = String.Empty;
+        textComponentDescription.text = String.Empty;
     }
 
     private void Start()
@@ -59,6 +61,16 @@ public class DialogueSystem : MonoBehaviour
         lines = dialogueSequence.DialogueLines;
         StartCoroutine(TypeLine());
         index = 0;
+    }
+
+    public void SetItemDescription(ItemSO item)
+    {
+        textComponent.text = item.description;
+    }
+    
+    public void ClearItemDescription()
+    {
+        textComponent.text = String.Empty;
     }
 
     IEnumerator TypeLine()
