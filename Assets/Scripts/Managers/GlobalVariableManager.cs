@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterPointManager : MonoBehaviour
+public class GlobalVariableManager : MonoBehaviour
 {
+
+    private Enums.Days _currentDay;
 
     private int _adventurerPoints;
     private int _princessPoints;
