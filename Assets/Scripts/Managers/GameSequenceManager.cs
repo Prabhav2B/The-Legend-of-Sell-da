@@ -47,7 +47,8 @@ public class GameSequenceManager : MonoBehaviour
 
     public void WaitForNextEvent()
     {
-        StartCoroutine(Waiter(7f));
+        StartCoroutine(Waiter(2f));
+        //ExecuteNextWorldEvent();
     }
 
     public void ExecuteNextWorldEvent()
@@ -68,7 +69,6 @@ public class GameSequenceManager : MonoBehaviour
                 _screenFadeManager.ScreenFadeOutWorldEvent((currentWorldEvent as DayStartSO)?.dayStartText);
                 break;
             case Enums.WorldEvents.characterApproach:
-                StartCoroutine(Waiter(7f));
                 switch ((currentWorldEvent as CharacterSO)?.character)
                 {
                     case Enums.Characters.adventurer:

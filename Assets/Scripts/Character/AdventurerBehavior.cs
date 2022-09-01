@@ -12,6 +12,7 @@ public class AdventurerBehavior : CharacterBehavior
     [SerializeField] private GlobalVariableManager _globalVariableManager;
     [SerializeField] private DialogueSystem _dialogueSystem;
     [SerializeField] private GameSequenceManager _sequenceManager;
+    [SerializeField] private ItemPlacement _itemPlacement;
     
     private Dictionary<string, DialogueSequenceSO> dialogueDictionary;
     private Animator anim; 
@@ -29,7 +30,8 @@ public class AdventurerBehavior : CharacterBehavior
         }
 
         _sequenceManager = FindObjectOfType<GameSequenceManager>();
-
+        _itemPlacement = FindObjectOfType<ItemPlacement>();
+        
         dialogueDictionary = DialogueUtility.ConvertToDictionary(merchantCodedDialogues);
 
         anim = adventurer.GetComponent<Animator>();
@@ -61,7 +63,7 @@ public class AdventurerBehavior : CharacterBehavior
                 break;
             case Enums.CharacterEvent.Greeting:
                 currentEvent = Enums.CharacterEvent.Selecting;
-                //ItemSelection();
+                _itemPlacement.StartItemPlacement();
                 break;
             case Enums.CharacterEvent.Selecting:
                 break;
@@ -77,7 +79,7 @@ public class AdventurerBehavior : CharacterBehavior
         switch (_globalVariableManager.CurrentDay)
         {
             case Enums.Days.Day1:
-                _dialogueSystem.StartDialogue(dialogueDictionary["HH"]);
+                _dialogueSystem.StartDialogue(dialogueDictionary["HH"], Enums.Characters.adventurer);
                 break;
             case Enums.Days.Day2:
                 DialogueSequenceSO res;
@@ -93,7 +95,7 @@ public class AdventurerBehavior : CharacterBehavior
                 {
                     res = dialogueDictionary["HF"];
                 }
-                _dialogueSystem.StartDialogue(res);
+                _dialogueSystem.StartDialogue(res, Enums.Characters.adventurer);
                 break;
             case Enums.Days.Day3:
 
@@ -125,7 +127,7 @@ public class AdventurerBehavior : CharacterBehavior
                     else
                         res = dialogueDictionary["HF"];
                 }
-                _dialogueSystem.StartDialogue(res);
+                _dialogueSystem.StartDialogue(res, Enums.Characters.adventurer);
                 break;
             case Enums.Days.EndDay:
                 throw new Exception("No Events for Last Day for Adventurer");

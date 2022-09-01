@@ -13,7 +13,7 @@ public class ShowItemInfo : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        dialogueSystem = GameObject.FindObjectOfType<DialogueSystem>();
+        dialogueSystem = FindObjectOfType<DialogueSystem>();
 
         originalPosition = transform.position;
     }

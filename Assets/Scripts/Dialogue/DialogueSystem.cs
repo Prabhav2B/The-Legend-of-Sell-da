@@ -7,12 +7,11 @@ using UnityEngine.InputSystem;
 
 public class DialogueSystem : MonoBehaviour
 {
-    [SerializeField]private TextMeshProUGUI textComponent;
-    [SerializeField]private TextMeshProUGUI textComponentDescription;
+    [SerializeField] private TextMeshProUGUI textComponent;
+    [SerializeField] private TextMeshProUGUI textComponentDescription;
     private string[] lines;
-    
-    [Range(.1f, 100f)]
-    [SerializeField] private float textSpeed;
+
+    [Range(.1f, 100f)] [SerializeField] private float textSpeed;
 
     private int index;
     private Enums.Characters _character;
@@ -23,31 +22,38 @@ public class DialogueSystem : MonoBehaviour
     [SerializeField] private AdventurerBehavior _adventurer;
     [SerializeField] private PrincessBehavior _princess;
     [SerializeField] private EvilAssDoodBehavior _evilAssDood;
-    
+
     private void Awake()
     {
-    //    gameObject.SetActive(false);
+        gameObject.SetActive(false);
         textComponent.text = String.Empty;
         textComponentDescription.text = String.Empty;
         _character = Enums.Characters._;
-        
+
         _merchant = FindObjectOfType<MerchantBehavior>();
         _adventurer = FindObjectOfType<AdventurerBehavior>();
         _princess = FindObjectOfType<PrincessBehavior>();
         _evilAssDood = FindObjectOfType<EvilAssDoodBehavior>();
     }
 
-    private void Start()
+    public void Activate()
     {
-        //StartDialogue();
+        textComponent.text = String.Empty;
+        textComponentDescription.text = String.Empty;
+        gameObject.SetActive(true);
+    }
+
+    public void Deactivate()
+    {
+        gameObject.SetActive(false);
     }
 
 
     public void OnDialogueAction(InputAction.CallbackContext context)
     {
-        if(!context.performed)
+        if (!context.performed)
             return;
-        
+
         if (textComponent.text == lines[index])
         {
             NextLine();
@@ -57,7 +63,6 @@ public class DialogueSystem : MonoBehaviour
             StopAllCoroutines();
             textComponent.text = lines[index];
         }
-        
     }
 
     private void StartDialogue()
@@ -73,26 +78,24 @@ public class DialogueSystem : MonoBehaviour
         lines = dialogueSequence.DialogueLines;
         index = 0;
         StartCoroutine(TypeLine());
-        
     }
-    
+
     public void StartDialogue(DialogueSequenceSO dialogueSequence, Enums.Characters character)
     {
         _character = character;
-        
+
         gameObject.SetActive(true);
         textComponent.text = String.Empty;
         lines = dialogueSequence.DialogueLines;
         index = 0;
         StartCoroutine(TypeLine());
-        
     }
 
     public void SetItemDescription(ItemSO item)
     {
         textComponentDescription.text = item.description;
     }
-    
+
     public void ClearItemDescription()
     {
         textComponentDescription.text = String.Empty;
@@ -145,5 +148,4 @@ public class DialogueSystem : MonoBehaviour
             }
         }
     }
-
 }
