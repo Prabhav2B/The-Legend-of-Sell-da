@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class AudioEngineScript : MonoBehaviour
+public class ShopAudioEngine : MonoBehaviour
 {
     // Intro
     public AudioClip introSoundTrack;
-    public int IntroLength;
+    public int IntroLength = 8;
 
     // SoundTrack Audio sources
     public AudioClip[] soundTrack;
@@ -15,13 +15,22 @@ public class AudioEngineScript : MonoBehaviour
     // Outro (Game End)
     public AudioClip outroSoundTrack;
 
+    // Character Audio Tracks
+    public AudioClip[] characterSounds;
+
+    // Item Sounds
+    public AudioClip[] SFXSounds;
+
+    // Current track playing
     public int AudioTrack;
 
     // Unity Audio handler
     public AudioSource audioData;
-    
+    public AudioSource characterAudioData;
+    public AudioSource soundFXAudioData;
+ 
     // Counters
-    public float bpm;
+    public float bpm = 70;
     public int beatCount;
     public int barCount;
 
@@ -36,10 +45,23 @@ public class AudioEngineScript : MonoBehaviour
     // Sequencer
     private int currentAudioTrackPlaying;
 
+
+    public static ShopAudioEngine Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        audioData = GetComponent<AudioSource>();
+        AudioSource[] audios = GetComponents<AudioSource>();
+        audioData = audios[0];
+        characterAudioData = audios[1];
+        soundFXAudioData = audios[2];
+
+//        audioData = GetComponent<AudioSource>();
         audioData.loop = true;
 
         // init
@@ -50,6 +72,10 @@ public class AudioEngineScript : MonoBehaviour
 
         // set the First Track (intro) to be played
         AudioTrack = -1;
+
+        // set up audiosources
+//        characterAudioSource = new AudioSource();
+//        soundFXSource = new AudioSource();
     }
 
     // Update is called once per frame
@@ -80,7 +106,25 @@ public class AudioEngineScript : MonoBehaviour
             print("Outro scheduled");
             AudioTrack = 99;
         }
-        
+
+        if (Input.GetKeyDown(KeyCode.W))
+        {
+            print("Link");
+            PlayCharacterAudio(1);
+        }
+
+        if (Input.GetKeyDown(KeyCode.S))
+        {
+            print("Zelda");
+            PlayCharacterAudio(2);
+        }
+
+
+        if (Input.GetKeyDown(KeyCode.D))
+        {
+            print("Ganon");
+            PlayCharacterAudio(3);
+        }
     }
 
     // BPM and Time counter
@@ -165,4 +209,25 @@ public class AudioEngineScript : MonoBehaviour
         }
     }
 
+    // Character audio
+    public void PlayCharacterAudio(int CharacterID)
+    {
+        if (CharacterID >=1 && CharacterID < (characterSounds.Length + 1))
+        {
+            characterAudioData.clip = characterSounds[CharacterID - 1];
+            characterAudioData.loop = false;
+            characterAudioData.Play(0);
+        }
+    }
+
+    // Play item sound
+    public void PlaySoundFX(int SoundFXID)
+    {
+        if (SoundFXID >= 1 && SoundFXID < (SFXSounds.Length + 1))
+        {
+            soundFXAudioData.clip = SFXSounds[SoundFXID - 1];
+            soundFXAudioData.loop = false;
+            soundFXAudioData.Play(0);
+        }
+    }
 }

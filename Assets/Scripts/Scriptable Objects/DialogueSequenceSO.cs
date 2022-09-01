@@ -7,4 +7,5 @@ using UnityEngine;
 public class DialogueSequenceSO : ScriptableObject
 {
     public string[] DialogueLines;
+    public Enums.Expressions expression;
 }

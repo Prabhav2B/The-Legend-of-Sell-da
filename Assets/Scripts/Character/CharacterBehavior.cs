@@ -4,16 +4,32 @@ using UnityEngine;
 
 public class CharacterBehavior : MonoBehaviour
 {
+    protected int currentMoney;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
+        currentMoney = 0;
     }
 
-    // Update is called once per frame
-    void Update()
+    public virtual void InitiateCharacterSequence()
     {
         
     }
+
+    public virtual void Approach()
+    {
+        
+    }
+    
+    public virtual void StandardDialogue()
+    {
+        
+    }
+    
+    
+    
+    
+    
+
+
 }
