@@ -86,7 +86,7 @@ PrefabInstance:
     - target: {fileID: -7511558181221131132, guid: dabd7388e2b6d448da5dd2b556a242d4, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: a09d2743c2fcf4001b4e417ca8f327dd, type: 2}
+      objectReference: {fileID: 2100000, guid: 377420d1f7dae433eb472cbff32af806, type: 2}
     - target: {fileID: 919132149155446097, guid: dabd7388e2b6d448da5dd2b556a242d4, type: 3}
       propertyPath: m_Name
       value: wallplank_model
