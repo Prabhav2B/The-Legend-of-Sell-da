@@ -16,6 +16,8 @@ public class AdventurerBehavior : CharacterBehavior
     
     private Dictionary<string, DialogueSequenceSO> dialogueDictionary;
     private Animator anim; 
+    
+    
 
     private void Awake()
     {
@@ -36,11 +38,14 @@ public class AdventurerBehavior : CharacterBehavior
 
         anim = adventurer.GetComponent<Animator>();
 
+        currentMoney = 10;
+
     }
     
     
     public override void InitiateCharacterSequence()
     {
+        _globalVariableManager.CurrentCharacter = Enums.Characters.evilassdood;
         Approach();
     }
 
@@ -66,11 +71,18 @@ public class AdventurerBehavior : CharacterBehavior
                 _itemPlacement.StartItemPlacement();
                 break;
             case Enums.CharacterEvent.Selecting:
+                currentEvent = Enums.CharacterEvent.Buying;
+                ExecuteBuyBehavior();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
 
+    }
+
+    private void ExecuteBuyBehavior()
+    {
+        _dialogueSystem.StartTransactionDialogue(dialogueDictionary["HC"], Enums.Characters.adventurer);
     }
 
     protected override void GreetingDialogue()

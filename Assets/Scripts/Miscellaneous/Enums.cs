@@ -60,7 +60,8 @@ public static class Enums
     {
         Entry,
         Greeting,
-        Selecting
+        Selecting,
+        Buying
     }
 
 

@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 3137397845442374550}
   - component: {fileID: 297992239122029628}
   - component: {fileID: 3255683611122614272}
-  m_Layer: 0
+  - component: {fileID: 2784588332719750266}
+  - component: {fileID: 1944543512572802342}
+  m_Layer: 10
   m_Name: bomb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +44,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4586626201502688833}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.44, y: 0.61, z: 0.55}
@@ -62,8 +64,37 @@ MonoBehaviour:
   cheapPosition: {x: -1.628, y: 1.099, z: -8.475}
   normalPosition: {x: -0.575, y: 1.105, z: -8.475}
   expensivePosition: {x: 0.439, y: 1.092, z: -8.475}
+  soundID: 8
   DisplayPosition: 0
   ButtonReactionTime: 0.1
+--- !u!114 &2784588332719750266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586626201502688833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1eadd7f33f32242ac9e841df3d6c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &1944543512572802342
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4586626201502688833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cd2a72c98778c499f7e722986a5952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDescription: {fileID: 11400000, guid: 98e54274f9633ec47951ae38c1f36596, type: 2}
 --- !u!1001 &4225630718402573042
 PrefabInstance:
   m_ObjectHideFlags: 0
