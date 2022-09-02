@@ -16,6 +16,8 @@ public class AdventurerBehavior : CharacterBehavior
     
     private Dictionary<string, DialogueSequenceSO> dialogueDictionary;
     private Animator anim; 
+    
+    
 
     private void Awake()
     {
@@ -80,7 +82,7 @@ public class AdventurerBehavior : CharacterBehavior
 
     private void ExecuteBuyBehavior()
     {
-        throw new NotImplementedException();
+        _dialogueSystem.StartTransactionDialogue(dialogueDictionary["HC"], Enums.Characters.adventurer);
     }
 
     protected override void GreetingDialogue()
