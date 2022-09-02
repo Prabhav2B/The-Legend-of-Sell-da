@@ -11,7 +11,7 @@ public class HighlightDisplay : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        OriginalMaterial = DisplayObject.GetComponent<Renderer>().material;
+        //OriginalMaterial = DisplayObject.GetComponent<Renderer>().material;
         
     }
 
@@ -23,17 +23,17 @@ public class HighlightDisplay : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
     {
-        DisplayObject.GetComponent<Renderer>().material = HighlightMaterial;
+        //DisplayObject.GetComponent<Renderer>().material = HighlightMaterial;
     }
 
     void OnTriggerStay(Collider collider)
     {
-        DisplayObject.GetComponent<Renderer>().material = HighlightMaterial;
+        //DisplayObject.GetComponent<Renderer>().material = HighlightMaterial;
     }
 
     void OnTriggerExit(Collider collider)
     {
-        DisplayObject.GetComponent<Renderer>().material = OriginalMaterial;
+        //DisplayObject.GetComponent<Renderer>().material = OriginalMaterial;
     }
 
 }

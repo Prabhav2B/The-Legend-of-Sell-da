@@ -12,8 +12,8 @@ public class ItemPlacement : MonoBehaviour
 
     private void Awake()
     {
-        _dialogueSystem = FindObjectOfType<DialogueSystem>();
-        _offerButton = FindObjectOfType<OfferButton>();
+        _dialogueSystem = FindObjectOfType<DialogueSystem>(true);
+        _offerButton = FindObjectOfType<OfferButton>(true);
     }
 
     public void StartItemPlacement()
