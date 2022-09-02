@@ -14,7 +14,7 @@ public class CharacterBehavior : MonoBehaviour
 
     public virtual void InitiateCharacterSequence()
     {
-        
+
     }
 
     public virtual void Approach()

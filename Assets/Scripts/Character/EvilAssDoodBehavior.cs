@@ -41,6 +41,7 @@ public class EvilAssDoodBehavior : CharacterBehavior
     
     public override void InitiateCharacterSequence()
     {
+        _globalVariableManager.CurrentCharacter = Enums.Characters.evilassdood;
         Approach();
     }
 

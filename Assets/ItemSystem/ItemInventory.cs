@@ -49,4 +49,9 @@ public class ItemInventory : MonoBehaviour
 //            UnderTheShelfPreFabs[i].transform = UnderTheSelfLocations[i];
 //        }
     }
+
+    public bool InventoryFull()
+    {
+        return DisplayObject1!=null && DisplayObject2!=null && DisplayObject3!=null;
+    }
 }

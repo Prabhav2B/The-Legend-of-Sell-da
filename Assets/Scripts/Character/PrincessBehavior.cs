@@ -40,6 +40,7 @@ public class PrincessBehavior : CharacterBehavior
     
     public override void InitiateCharacterSequence()
     {
+        _globalVariableManager.CurrentCharacter = Enums.Characters.princess;
         Approach();
     }
 

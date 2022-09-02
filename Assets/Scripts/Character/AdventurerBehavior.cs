@@ -36,11 +36,14 @@ public class AdventurerBehavior : CharacterBehavior
 
         anim = adventurer.GetComponent<Animator>();
 
+        currentMoney = 10;
+
     }
     
     
     public override void InitiateCharacterSequence()
     {
+        _globalVariableManager.CurrentCharacter = Enums.Characters.evilassdood;
         Approach();
     }
 
@@ -66,11 +69,18 @@ public class AdventurerBehavior : CharacterBehavior
                 _itemPlacement.StartItemPlacement();
                 break;
             case Enums.CharacterEvent.Selecting:
+                currentEvent = Enums.CharacterEvent.Buying;
+                ExecuteBuyBehavior();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
 
+    }
+
+    private void ExecuteBuyBehavior()
+    {
+        throw new NotImplementedException();
     }
 
     protected override void GreetingDialogue()

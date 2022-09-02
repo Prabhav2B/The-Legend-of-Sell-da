@@ -119,7 +119,7 @@ public class UpdatePosition : MonoBehaviour
             {
                 SetDisplayStatus(DisplayPosition);
                 PlaceItemOnDisplay(DisplayPosition);
-                ShopAudioEngine.Instance.PlaySoundFX(soundID);
+                //ShopAudioEngine.Instance.PlaySoundFX(soundID);
             }
 
             aboutToMove = false;

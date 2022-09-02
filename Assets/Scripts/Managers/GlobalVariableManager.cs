@@ -35,6 +35,13 @@ public class GlobalVariableManager : MonoBehaviour
     
     public Enums.Days CurrentDay => _currentDay;
 
+    public Enums.Characters CurrentCharacter { get; set; }
+    
+    [SerializeField] private MerchantBehavior _merchant;
+    [SerializeField] private AdventurerBehavior _adventurer;
+    [SerializeField] private PrincessBehavior _princess;
+    [SerializeField] private EvilAssDoodBehavior _evilAssDood;
+
     void Start()
     {
         _adventurerPoints = 0;
@@ -49,6 +56,13 @@ public class GlobalVariableManager : MonoBehaviour
         adventurerPersonalTally = new bool[3];
         princessPersonalTally = new bool[3];
         evilDoodPersonalTally = new bool[3];
+
+        CurrentCharacter = Enums.Characters._;
+        
+        _merchant = FindObjectOfType<MerchantBehavior>();
+        _adventurer = FindObjectOfType<AdventurerBehavior>();
+        _princess = FindObjectOfType<PrincessBehavior>();
+        _evilAssDood = FindObjectOfType<EvilAssDoodBehavior>();
     }
 
     public void UpdatePoints(Enums.Characters character, int points)
@@ -144,5 +158,30 @@ public class GlobalVariableManager : MonoBehaviour
             default:
                 throw new ArgumentOutOfRangeException();
         }
+    }
+
+    public void NextCharacterAction()
+    {
+        switch (CurrentCharacter)
+        {
+            case Enums.Characters.adventurer:
+                _adventurer.ActionsLeft();
+                break;
+            case Enums.Characters.princess:
+                _princess.ActionsLeft();
+                break;
+            case Enums.Characters.evilassdood:
+                _evilAssDood.ActionsLeft();
+                break;
+            case Enums.Characters.merchant:
+                _merchant.ActionsLeft();
+                break;
+            case Enums.Characters._:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
+        }
+
+        
     }
 }
