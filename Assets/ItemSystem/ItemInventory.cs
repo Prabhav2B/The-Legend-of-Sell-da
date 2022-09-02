@@ -10,12 +10,12 @@ public class ItemInventory : MonoBehaviour
 
     public static ItemInventory Instance;
 
-    public GameObject[] UnderTheShelfPreFabs;
+    List<GameObject> UnderTheShelfObjects;
     public Vector3[] UnderTheSelfLocations;
 
     public GameObject[] FullObjectInventory;
 
-    public int SpwanAmount = 8;
+    public int SpawnAmount = 8;
 
     private void Awake()
     {
@@ -25,7 +25,7 @@ public class ItemInventory : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
+        SpawnShopItems();
     }
 
     // Update is called once per frame
@@ -37,17 +37,19 @@ public class ItemInventory : MonoBehaviour
     // Spawn items under the shelf
     void SpawnShopItems()
     {
-//        if (UnderTheSelfLocations.Length < SpawnAmount)
+        if (UnderTheSelfLocations.Length < SpawnAmount)
         {
             print("Setup locations for items!");
             return;
         }
 
-//        for (int i = 0; i < SpawnAmount; i++ )
-//        {
-//            UnderTheShelfPreFabs[i] = FullObjectInventory[i];
-//            UnderTheShelfPreFabs[i].transform = UnderTheSelfLocations[i];
-//        }
+        UnderTheShelfObjects = new List<GameObject>();
+
+        for (int i = 0; i < SpawnAmount; i++)
+        {
+            UnderTheShelfObjects.Add(Instantiate(FullObjectInventory[i], UnderTheSelfLocations[i], Quaternion.identity));
+
+        }
     }
 
 

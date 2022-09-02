@@ -107,6 +107,8 @@ public class DialogueSystem : MonoBehaviour
         index = 0;
         inputActive = true;
         StartCoroutine(TypeLine());
+
+        SetCharacterFaceExpression(dialogueSequence, character);    // Character face expression function    
     }
     
     public void StartSelectionDialogue(DialogueSequenceSO dialogueSequence, Enums.Characters character)
@@ -138,6 +140,8 @@ public class DialogueSystem : MonoBehaviour
         refuseSale.gameObject.SetActive(true);
         
         StartCoroutine(TypeLine());
+
+        SetCharacterFaceExpression(dialogueSequence, character);    // Character face expression function    
     }
 
     public void SetItemDescription(ItemSO item)
@@ -196,5 +200,36 @@ public class DialogueSystem : MonoBehaviour
                 _character = Enums.Characters._;
             }
         }
+    }
+
+
+    // Face expression
+    // Most certainly not to the proper way to find the right gameobjects, but hopefully will work
+    void SetCharacterFaceExpression(DialogueSequenceSO dialogueSequence, Enums.Characters character)
+    {
+        GameObject CharacterObject;
+
+        if (character == Enums.Characters.adventurer)
+        {
+            CharacterObject = GameObject.Find("Hero");
+            CharacterExpressions expressionScript = CharacterObject.GetComponentInChildren<CharacterExpressions>();
+            expressionScript.UpdateExpression(dialogueSequence);
+
+        }
+        if (character == Enums.Characters.princess)
+        {
+            CharacterObject = GameObject.Find("Princess");
+            CharacterExpressions expressionScript = CharacterObject.GetComponentInChildren<CharacterExpressions>();
+            expressionScript.UpdateExpression(dialogueSequence);
+
+        }
+        if (character == Enums.Characters.evilassdood)
+        {
+            CharacterObject = GameObject.Find("FalseKing");
+            CharacterExpressions expressionScript = CharacterObject.GetComponentInChildren<CharacterExpressions>();
+            expressionScript.UpdateExpression(dialogueSequence);
+
+        }
+
     }
 }

@@ -261,6 +261,7 @@ GameObject:
   - component: {fileID: 6334652146586089974}
   - component: {fileID: 657613384120129693}
   - component: {fileID: 1449379498358550044}
+  - component: {fileID: 7648655967579270853}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -376,6 +377,26 @@ MonoBehaviour:
   m_CategoryHash: 0
   m_labelHash: 0
   m_SpriteKey: -5.8377206e-17
+--- !u!114 &7648655967579270853
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1507057034533434361}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d80581283b7b08498a4a885e707778a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  SpriteCategory: 
+  Label_Curious: Entry_0
+  Label_Frown: Entry
+  Label_Happy: Entry_1
+  Label_SuperFrown: Entry
+  Label_SuperHappy: Entry_1
+  Label_Furious: Entry
+  Label_Smile: Entry_1
 --- !u!1 &1833905958267126565
 GameObject:
   m_ObjectHideFlags: 0

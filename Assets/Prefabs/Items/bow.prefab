@@ -9,9 +9,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3055618089520497421}
-  - component: {fileID: 5072149260132275097}
   - component: {fileID: 3080465472502746234}
-  m_Layer: 0
+  - component: {fileID: 5072149260132275097}
+  - component: {fileID: -68675912112358896}
+  - component: {fileID: 6783355320812008129}
+  m_Layer: 10
   m_Name: bow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -34,6 +36,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3080465472502746234
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759689180352141562}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.7, y: 0.61, z: 0.46}
+  m_Center: {x: 0, y: 0.09, z: 0}
 --- !u!114 &5072149260132275097
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49,22 +64,37 @@ MonoBehaviour:
   cheapPosition: {x: -1.628, y: 1.099, z: -8.475}
   normalPosition: {x: -0.575, y: 1.105, z: -8.475}
   expensivePosition: {x: 0.439, y: 1.092, z: -8.475}
-  soundID: 2
+  soundID: 6
   DisplayPosition: 0
   ButtonReactionTime: 0.1
---- !u!65 &3080465472502746234
-BoxCollider:
+--- !u!114 &-68675912112358896
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4759689180352141562}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7, y: 0.61, z: 0.46}
-  m_Center: {x: 0, y: 0.09, z: 0}
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1eadd7f33f32242ac9e841df3d6c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &6783355320812008129
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4759689180352141562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cd2a72c98778c499f7e722986a5952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDescription: {fileID: 11400000, guid: 60e8a859a5d10a94f9069d9e1f6a0aef, type: 2}
 --- !u!1001 &3300694264266462331
 PrefabInstance:
   m_ObjectHideFlags: 0

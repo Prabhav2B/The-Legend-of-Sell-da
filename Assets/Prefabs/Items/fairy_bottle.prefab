@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 856226578108176555}
   - component: {fileID: 1873494679117858866}
   - component: {fileID: 7551960010423547003}
-  m_Layer: 0
+  - component: {fileID: 4959694187685973431}
+  - component: {fileID: 4566670695124716312}
+  m_Layer: 10
   m_Name: fairy_bottle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +45,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6172517263169196643}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.25, y: 0.45, z: 0.26}
@@ -63,8 +65,37 @@ MonoBehaviour:
   cheapPosition: {x: -1.628, y: 1.099, z: -8.475}
   normalPosition: {x: -0.575, y: 1.105, z: -8.475}
   expensivePosition: {x: 0.439, y: 1.092, z: -8.475}
+  soundID: 2
   DisplayPosition: 0
   ButtonReactionTime: 0.1
+--- !u!114 &4959694187685973431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172517263169196643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1eadd7f33f32242ac9e841df3d6c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &4566670695124716312
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6172517263169196643}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cd2a72c98778c499f7e722986a5952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDescription: {fileID: 11400000, guid: 2962ca5852dfd8b4082ea5e90d44112d, type: 2}
 --- !u!1 &6299849702093767047
 GameObject:
   m_ObjectHideFlags: 0
