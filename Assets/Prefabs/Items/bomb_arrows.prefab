@@ -63,10 +63,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 406541cbedbc61a49b133d396a4086e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  cheapPosition: {x: -1.628, y: 1.099, z: -8.475}
-  normalPosition: {x: -0.575, y: 1.105, z: -8.483}
-  expensivePosition: {x: 0.439, y: 1.092, z: -8.475}
-  soundID: 7
+  cheapPosition: {x: -1.628, y: 1.195, z: -8.985}
+  normalPosition: {x: -0.538, y: 1.195, z: -8.985}
+  expensivePosition: {x: 0.499, y: 1.195, z: -8.985}
+  soundID: 6
   DisplayPosition: 0
   ButtonReactionTime: 0.1
 --- !u!114 &-4920665937791488462

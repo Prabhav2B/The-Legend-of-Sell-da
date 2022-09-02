@@ -8,9 +8,9 @@ public class UpdatePosition : MonoBehaviour
     private Vector3 originalScale;
     private Vector3 dragScale;
 
-    public Vector3 cheapPosition = new Vector3(-1.628f, 1.099f, -8.475f);
-    public Vector3 normalPosition = new Vector3(-0.575f, 1.105f, -8.475f);
-    public Vector3 expensivePosition = new Vector3(0.439f, 1.092f, -8.475f);
+    public Vector3 cheapPosition = new Vector3(-1.628f, 1.195f, -8.985f);
+    public Vector3 normalPosition = new Vector3(-0.538f, 1.1195f, -8.985f);
+    public Vector3 expensivePosition = new Vector3(0.499f, 1.195f, -8.985f);
 
     public int soundID = 2;
 
@@ -119,7 +119,7 @@ public class UpdatePosition : MonoBehaviour
             {
                 SetDisplayStatus(DisplayPosition);
                 PlaceItemOnDisplay(DisplayPosition);
-                //ShopAudioEngine.Instance.PlaySoundFX(soundID);
+                ShopAudioEngine.Instance.PlaySoundFX(soundID);
             }
 
             aboutToMove = false;
