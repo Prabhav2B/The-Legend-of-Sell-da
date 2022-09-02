@@ -22,4 +22,9 @@ public class ItemPlacement : MonoBehaviour
         _dialogueSystem.Activate();
         _offerButton.ActivateButton();
     }
+
+    public void EndItemPlacement()
+    {
+        itemPlacementCamera.gameObject.SetActive(false);
+    }
 }

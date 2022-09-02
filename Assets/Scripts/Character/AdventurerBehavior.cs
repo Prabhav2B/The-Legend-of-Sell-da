@@ -6,18 +6,23 @@ using UnityEngine;
 public class AdventurerBehavior : CharacterBehavior
 {
     [SerializeField] private GameObject adventurer;
-    
-    [SerializeField] private List<CodedDialogue> merchantCodedDialogues;//I fucked up and I'm not gonna risk losing references by renaming
-    
+
+    [SerializeField]
+    private List<CodedDialogue>
+        merchantCodedDialogues; //I fucked up and I'm not gonna risk losing references by renaming
+
     [SerializeField] private GlobalVariableManager _globalVariableManager;
     [SerializeField] private DialogueSystem _dialogueSystem;
     [SerializeField] private GameSequenceManager _sequenceManager;
     [SerializeField] private ItemPlacement _itemPlacement;
-    
+    [SerializeField] private ItemInventory _itemInventory;
+
     private Dictionary<string, DialogueSequenceSO> dialogueDictionary;
-    private Animator anim; 
-    
-    
+    private Animator anim;
+
+    private Enums.ItemTypes[] wants;
+
+    private int index = 0;
 
     private void Awake()
     {
@@ -33,19 +38,25 @@ public class AdventurerBehavior : CharacterBehavior
 
         _sequenceManager = FindObjectOfType<GameSequenceManager>();
         _itemPlacement = FindObjectOfType<ItemPlacement>();
-        
+        _itemInventory = FindObjectOfType<ItemInventory>();
+
         dialogueDictionary = DialogueUtility.ConvertToDictionary(merchantCodedDialogues);
 
         anim = adventurer.GetComponent<Animator>();
 
-        currentMoney = 10;
+        wants = new Enums.ItemTypes[]
+        {
+            Enums.ItemTypes.fairy, Enums.ItemTypes.bomb_arrows, Enums.ItemTypes.forest_dweller_shield,
+            Enums.ItemTypes.forest_dweller_bow, Enums.ItemTypes.bomb
+        };
 
+        currentMoney = 10;
     }
-    
-    
+
+
     public override void InitiateCharacterSequence()
     {
-        _globalVariableManager.CurrentCharacter = Enums.Characters.evilassdood;
+        _globalVariableManager.CurrentCharacter = Enums.Characters.adventurer;
         Approach();
     }
 
@@ -55,9 +66,8 @@ public class AdventurerBehavior : CharacterBehavior
         adventurer.SetActive(true);
 
         StartCoroutine(WaitForAnimationComplete());
-
     }
-    
+
     public override void ActionsLeft()
     {
         switch (currentEvent)
@@ -72,17 +82,59 @@ public class AdventurerBehavior : CharacterBehavior
                 break;
             case Enums.CharacterEvent.Selecting:
                 currentEvent = Enums.CharacterEvent.Buying;
-                ExecuteBuyBehavior();
+                ExecuteBuyBehaviorOne();
+                break;
+            case Enums.CharacterEvent.Buying:
+                currentEvent = Enums.CharacterEvent.Offering;
+                ExecuteBuyBehaviorTwo();
                 break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
-
     }
 
-    private void ExecuteBuyBehavior()
+    private void ExecuteBuyBehaviorTwo()
     {
-        _dialogueSystem.StartTransactionDialogue(dialogueDictionary["HC"], Enums.Characters.adventurer);
+        
+        int cost = (index + 1) * 2;
+
+        if (currentMoney >= cost)
+        {
+            _dialogueSystem.StartTransactionDialogue(dialogueDictionary["HH"], Enums.Characters.adventurer, true);   
+        }
+
+        
+    }
+
+    private void ExecuteBuyBehaviorOne()
+    {
+        _itemPlacement.EndItemPlacement();
+        index = 0;
+        Enums.ItemTypes selectedItem = Enums.ItemTypes.sheik_mask;
+        var items = _itemInventory.ItemsOnSale();
+
+
+        foreach (var y in items)
+        {
+            foreach (var x in wants)
+            {
+                if (x == y)
+                    selectedItem = x;
+                break;
+            }
+
+            index++;
+        }
+
+        if (selectedItem == Enums.ItemTypes.sheik_mask)
+        {
+            index = 0;
+            selectedItem = items[0];
+        }
+        
+        _itemInventory.ElevateItem(index);
+
+        _dialogueSystem.StartSelectionDialogue(dialogueDictionary["HC"], Enums.Characters.adventurer);
     }
 
     protected override void GreetingDialogue()
@@ -99,7 +151,7 @@ public class AdventurerBehavior : CharacterBehavior
                 {
                     res = dialogueDictionary["HSH"];
                 }
-                else if(!_globalVariableManager.EvilPersonalTally[0])
+                else if (!_globalVariableManager.EvilPersonalTally[0])
                 {
                     res = dialogueDictionary["HH"];
                 }
@@ -107,18 +159,19 @@ public class AdventurerBehavior : CharacterBehavior
                 {
                     res = dialogueDictionary["HF"];
                 }
+
                 _dialogueSystem.StartDialogue(res, Enums.Characters.adventurer);
                 break;
             case Enums.Days.Day3:
 
                 if (_globalVariableManager.AdventurerPersonalTally[0])
                 {
-                    if(_globalVariableManager.AdventurerPersonalTally[1])
+                    if (_globalVariableManager.AdventurerPersonalTally[1])
                         res = dialogueDictionary["HSH"];
                     else
                         res = dialogueDictionary["HF"];
                 }
-                else if(_globalVariableManager.PrincessPersonalTally[0])
+                else if (_globalVariableManager.PrincessPersonalTally[0])
                 {
                     if (_globalVariableManager.AdventurerPersonalTally[1])
                     {
@@ -126,7 +179,7 @@ public class AdventurerBehavior : CharacterBehavior
                     }
                     else
                     {
-                        if(!_globalVariableManager.EvilPersonalTally[1])
+                        if (!_globalVariableManager.EvilPersonalTally[1])
                             res = dialogueDictionary["HF"];
                         else
                             res = dialogueDictionary["HH"];
@@ -134,11 +187,12 @@ public class AdventurerBehavior : CharacterBehavior
                 }
                 else
                 {
-                    if(_globalVariableManager.AdventurerPersonalTally[1])
+                    if (_globalVariableManager.AdventurerPersonalTally[1])
                         res = dialogueDictionary["HH"];
                     else
                         res = dialogueDictionary["HF"];
                 }
+
                 _dialogueSystem.StartDialogue(res, Enums.Characters.adventurer);
                 break;
             case Enums.Days.EndDay:
@@ -146,7 +200,6 @@ public class AdventurerBehavior : CharacterBehavior
             default:
                 throw new ArgumentOutOfRangeException();
         }
-        
     }
 
     IEnumerator WaitForAnimationComplete()
@@ -161,6 +214,5 @@ public class AdventurerBehavior : CharacterBehavior
 
             yield return new WaitForSeconds(1);
         }
-        
     }
 }

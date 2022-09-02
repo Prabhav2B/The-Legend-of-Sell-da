@@ -31,6 +31,9 @@ public class OfferButton : MonoBehaviour
     void Update()
     {
         
+        if(btnLock)
+            return;
+        
         if (_itemInventory.InventoryFull())
         {
             btn.interactable = true;

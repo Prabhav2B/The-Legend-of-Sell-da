@@ -16,6 +16,8 @@ public class EvilAssDoodBehavior : CharacterBehavior
     
     private Dictionary<string, DialogueSequenceSO> dialogueDictionary;
     private Animator anim; 
+    
+    private Enums.ItemTypes[] wants;
 
     private void Awake()
     {
@@ -35,6 +37,8 @@ public class EvilAssDoodBehavior : CharacterBehavior
         dialogueDictionary = DialogueUtility.ConvertToDictionary(merchantCodedDialogues);
 
         anim = _evilAssDude.GetComponent<Animator>();
+
+        wants = new Enums.ItemTypes[] {Enums.ItemTypes.phantom_cape, Enums.ItemTypes.bomb_arrows, Enums.ItemTypes.forest_dweller_shield, Enums.ItemTypes.forest_dweller_bow, Enums.ItemTypes.bomb};
 
     }
     

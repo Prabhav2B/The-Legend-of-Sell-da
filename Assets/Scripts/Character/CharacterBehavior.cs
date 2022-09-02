@@ -9,7 +9,7 @@ public class CharacterBehavior : MonoBehaviour
 
     void Start()
     {
-        currentMoney = 0;
+        currentMoney = 10;
     }
 
     public virtual void InitiateCharacterSequence()

@@ -61,7 +61,8 @@ public static class Enums
         Entry,
         Greeting,
         Selecting,
-        Buying
+        Buying,
+        Offering
     }
 
 

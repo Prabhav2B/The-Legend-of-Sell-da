@@ -50,8 +50,36 @@ public class ItemInventory : MonoBehaviour
 //        }
     }
 
+
+    public Enums.ItemTypes[] ItemsOnSale()
+    {
+
+        return new Enums.ItemTypes[] { DisplayObject1.GetComponent<ShowItemInfo>().itemDescription.itemType, DisplayObject2.GetComponent<ShowItemInfo>().itemDescription.itemType, DisplayObject2.GetComponent<ShowItemInfo>().itemDescription.itemType  };
+        
+
+    }
+    
+
     public bool InventoryFull()
     {
         return DisplayObject1!=null && DisplayObject2!=null && DisplayObject3!=null;
+    }
+
+    public void ElevateItem(int index)
+    {
+        switch (index)
+        {
+            case 0:
+                DisplayObject1.transform.position += Vector3.up/3;
+                break;
+            case 1:
+                DisplayObject2.transform.position += Vector3.up/3;
+                break;
+            case 2:
+                DisplayObject3.transform.position += Vector3.up/3;
+                break;
+
+        }
+        
     }
 }

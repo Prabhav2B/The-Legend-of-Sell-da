@@ -14,7 +14,9 @@ public class PrincessBehavior : CharacterBehavior
     [SerializeField] private ItemPlacement _itemPlacement;
     
     private Dictionary<string, DialogueSequenceSO> dialogueDictionary;
-    private Animator anim; 
+    private Animator anim;
+
+    private Enums.ItemTypes[] wants;
 
     private void Awake()
     {
@@ -34,6 +36,9 @@ public class PrincessBehavior : CharacterBehavior
         dialogueDictionary = DialogueUtility.ConvertToDictionary(merchantCodedDialogues);
 
         anim = _princess.GetComponent<Animator>();
+        
+        
+        wants = new Enums.ItemTypes[] {Enums.ItemTypes.ocarina, Enums.ItemTypes.bomb_arrows, Enums.ItemTypes.forest_dweller_shield, Enums.ItemTypes.forest_dweller_bow, Enums.ItemTypes.bomb};
 
     }
     

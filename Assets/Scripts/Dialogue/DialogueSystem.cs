@@ -109,7 +109,21 @@ public class DialogueSystem : MonoBehaviour
         StartCoroutine(TypeLine());
     }
     
-    public void StartTransactionDialogue(DialogueSequenceSO dialogueSequence, Enums.Characters character)
+    public void StartSelectionDialogue(DialogueSequenceSO dialogueSequence, Enums.Characters character)
+    {
+        _character = character;
+
+        gameObject.SetActive(true);
+        textComponent.text = String.Empty;
+        lines = dialogueSequence.DialogueLines;
+        index = 0;
+        inputActive = true;
+
+        StartCoroutine(TypeLine());
+    }
+
+    
+    public void StartTransactionDialogue(DialogueSequenceSO dialogueSequence, Enums.Characters character, bool allowHaggle)
     {
         _character = character;
 
@@ -120,7 +134,7 @@ public class DialogueSystem : MonoBehaviour
         inputActive = false;
         
         sellAtOriginal.gameObject.SetActive(true);
-        sellForHaggle.gameObject.SetActive(true);
+        sellForHaggle.gameObject.SetActive(allowHaggle);
         refuseSale.gameObject.SetActive(true);
         
         StartCoroutine(TypeLine());
