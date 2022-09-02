@@ -11,7 +11,9 @@ GameObject:
   - component: {fileID: 2850902565480038917}
   - component: {fileID: 8497405865478753465}
   - component: {fileID: 4433622213940820721}
-  m_Layer: 0
+  - component: {fileID: -3570926779332107214}
+  - component: {fileID: 8297201779430108429}
+  m_Layer: 10
   m_Name: ocarina
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +44,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6810533604154353561}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 0.68, y: 0.46, z: 0.3}
@@ -62,8 +64,37 @@ MonoBehaviour:
   cheapPosition: {x: -1.628, y: 1.099, z: -8.475}
   normalPosition: {x: -0.575, y: 1.105, z: -8.475}
   expensivePosition: {x: 0.439, y: 1.092, z: -8.475}
+  soundID: 3
   DisplayPosition: 0
   ButtonReactionTime: 0.1
+--- !u!114 &-3570926779332107214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6810533604154353561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa1eadd7f33f32242ac9e841df3d6c4a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputLayerMask:
+    serializedVersion: 2
+    m_Bits: 1024
+--- !u!114 &8297201779430108429
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6810533604154353561}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f5cd2a72c98778c499f7e722986a5952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemDescription: {fileID: 11400000, guid: cbe8f4087522fc44aad039f6a40cda05, type: 2}
 --- !u!1 &7425584006481346545
 GameObject:
   m_ObjectHideFlags: 0
