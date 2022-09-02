@@ -125,6 +125,8 @@ public class AdventurerBehavior : CharacterBehavior
 
             index++;
         }
+        
+        Debug.Log(selectedItem);
 
         if (selectedItem == Enums.ItemTypes.sheik_mask)
         {
