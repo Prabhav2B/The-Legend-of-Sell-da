@@ -197,21 +197,21 @@ public class DialogueSystem : MonoBehaviour
 
         if (character == Enums.Characters.adventurer)
         {
-            CharacterObject = GameObject.Find("zelda");
+            CharacterObject = GameObject.Find("Hero");
             CharacterExpressions expressionScript = CharacterObject.GetComponentInChildren<CharacterExpressions>();
             expressionScript.UpdateExpression(dialogueSequence);
 
         }
         if (character == Enums.Characters.princess)
         {
-            CharacterObject = GameObject.Find("link");
+            CharacterObject = GameObject.Find("Princess");
             CharacterExpressions expressionScript = CharacterObject.GetComponentInChildren<CharacterExpressions>();
             expressionScript.UpdateExpression(dialogueSequence);
 
         }
         if (character == Enums.Characters.evilassdood)
         {
-            CharacterObject = GameObject.Find("ganon");
+            CharacterObject = GameObject.Find("FalseKing");
             CharacterExpressions expressionScript = CharacterObject.GetComponentInChildren<CharacterExpressions>();
             expressionScript.UpdateExpression(dialogueSequence);
 
