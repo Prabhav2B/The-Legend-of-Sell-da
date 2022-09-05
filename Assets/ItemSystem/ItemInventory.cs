@@ -56,7 +56,7 @@ public class ItemInventory : MonoBehaviour
     public Enums.ItemTypes[] ItemsOnSale()
     {
 
-        return new Enums.ItemTypes[] { DisplayObject1.GetComponent<ShowItemInfo>().itemDescription.itemType, DisplayObject2.GetComponent<ShowItemInfo>().itemDescription.itemType, DisplayObject2.GetComponent<ShowItemInfo>().itemDescription.itemType  };
+        return new Enums.ItemTypes[] { DisplayObject1.GetComponent<ShowItemInfo>().itemDescription.itemType, DisplayObject2.GetComponent<ShowItemInfo>().itemDescription.itemType, DisplayObject3.GetComponent<ShowItemInfo>().itemDescription.itemType  };
         
 
     }
@@ -72,13 +72,13 @@ public class ItemInventory : MonoBehaviour
         switch (index)
         {
             case 0:
-                DisplayObject1.transform.position += Vector3.up/3;
+                DisplayObject1.transform.position += Vector3.up;
                 break;
             case 1:
-                DisplayObject2.transform.position += Vector3.up/3;
+                DisplayObject2.transform.position += Vector3.up;
                 break;
             case 2:
-                DisplayObject3.transform.position += Vector3.up/3;
+                DisplayObject3.transform.position += Vector3.up;
                 break;
 
         }

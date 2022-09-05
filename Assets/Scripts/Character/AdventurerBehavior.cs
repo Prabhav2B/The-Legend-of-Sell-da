@@ -7,8 +7,7 @@ public class AdventurerBehavior : CharacterBehavior
 {
     [SerializeField] private GameObject adventurer;
 
-    [SerializeField]
-    private List<CodedDialogue>
+    [SerializeField] private List<CodedDialogue>
         merchantCodedDialogues; //I fucked up and I'm not gonna risk losing references by renaming
 
     [SerializeField] private GlobalVariableManager _globalVariableManager;
@@ -24,8 +23,12 @@ public class AdventurerBehavior : CharacterBehavior
 
     private int index = 0;
 
+    private bool locker;
+    
+
     private void Awake()
     {
+        
         if (_globalVariableManager == null)
         {
             _globalVariableManager = FindObjectOfType<GlobalVariableManager>();
@@ -51,6 +54,7 @@ public class AdventurerBehavior : CharacterBehavior
         };
 
         currentMoney = 10;
+        locker = false;
     }
 
 
@@ -88,52 +92,67 @@ public class AdventurerBehavior : CharacterBehavior
                 currentEvent = Enums.CharacterEvent.Offering;
                 ExecuteBuyBehaviorTwo();
                 break;
+            case Enums.CharacterEvent.Offering:
+                currentEvent = Enums.CharacterEvent.Exiting;
+                CharacterExit();
+                break;
             default:
                 throw new ArgumentOutOfRangeException();
         }
     }
 
+    private void CharacterExit()
+    {
+        anim.SetBool("done", true);
+        
+        
+        StartCoroutine(WaitForExitAnimationComplete());
+    }
+
+    
+
     private void ExecuteBuyBehaviorTwo()
     {
-        
         int cost = (index + 1) * 2;
 
         if (currentMoney >= cost)
         {
-            _dialogueSystem.StartTransactionDialogue(dialogueDictionary["HH"], Enums.Characters.adventurer, true);   
+            _dialogueSystem.StartTransactionDialogue(dialogueDictionary["HH"], Enums.Characters.adventurer, true);
         }
-
-        
     }
 
     private void ExecuteBuyBehaviorOne()
     {
+        locker = false;
         _itemPlacement.EndItemPlacement();
         index = 0;
         Enums.ItemTypes selectedItem = Enums.ItemTypes.sheik_mask;
         var items = _itemInventory.ItemsOnSale();
 
 
-        foreach (var y in items)
+        for (int i = 0; i < wants.Length; i++)
         {
-            foreach (var x in wants)
+            index = 0;
+            for (int j = 0; j < items.Length; j++)
             {
-                if (x == y)
-                    selectedItem = x;
-                break;
-            }
+                if (wants[i] == items[j] && !locker)
+                {
+                    locker = true;
+                    selectedItem = items[j];
+                    print(items[j]);
+                    break;
+                }
 
-            index++;
+                index++;
+            }
         }
-        
-        Debug.Log(selectedItem);
 
         if (selectedItem == Enums.ItemTypes.sheik_mask)
         {
             index = 0;
             selectedItem = items[0];
         }
-        
+
         _itemInventory.ElevateItem(index);
 
         _dialogueSystem.StartSelectionDialogue(dialogueDictionary["HC"], Enums.Characters.adventurer);
@@ -211,6 +230,20 @@ public class AdventurerBehavior : CharacterBehavior
             if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
             {
                 ActionsLeft();
+                break;
+            }
+
+            yield return new WaitForSeconds(1);
+        }
+    }
+    
+    IEnumerator WaitForExitAnimationComplete()
+    {
+        while (true)
+        {
+            if (anim.GetCurrentAnimatorStateInfo(0).normalizedTime > 1 && !anim.IsInTransition(0))
+            {
+                _sequenceManager.ExecuteNextWorldEvent();
                 break;
             }
 
